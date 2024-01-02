@@ -1,20 +1,62 @@
 ---
 import navItems from '../data/navItems';
+import { Icon } from 'astro-icon/components';
+import Link from './Link.astro';
 ---
 
 <nav>
   <div class='container'>
-    <a href='' aria-label='Go home'>
-      <!--image -->
-    </a>
-    <ul>
-      {
-        navItems.map((item) => (
-          <li>
-            <a href={item.href}>{item.text}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class='navbar-container'>
+      <a href='/' aria-label='Go home' class='logo'>
+        <Icon name='logo-icon' />
+      </a>
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <Link
+                href={item.href}
+                text={item.text}
+                dropdown={item.dropdown}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </nav>
+
+<style>
+  .container {
+    margin: auto;
+    max-width: 1540px;
+    padding-inline: 1rem;
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+  }
+  .logo:focus,
+  a:focus {
+    outline: transparent;
+  }
+  ul {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #212832;
+  }
+  a:focus-visible,
+  .logo:focus-visible {
+    color: #484e80;
+  }
+</style>
