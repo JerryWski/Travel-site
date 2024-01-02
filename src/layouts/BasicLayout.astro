@@ -1,35 +1,36 @@
 ---
+import Navbar from '../components/Navbar.astro';
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title = 'Traveling site - mastering Astro' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		font-size: 16px;
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	
+  :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #bfc8dd;
+  }
 </style>
