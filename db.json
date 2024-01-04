@@ -1,0 +1,19 @@
+{
+  "tripSteps": [
+    {
+      "id": 1,
+      "title": "Choose Destination",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. "
+    },
+    {
+      "id": 2,
+      "title": "Make Payment",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. "
+    },
+    {
+      "id": 3,
+      "title": "Reach Airport on Selected Date",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. "
+    }
+  ]
+}

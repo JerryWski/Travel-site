@@ -10,16 +10,14 @@ import Link from './Link.astro';
       <a href='/' aria-label='Go home' class='logo'>
         <Icon name='logo-icon' />
       </a>
-      <ul>
+      <ul class='navbar-links'>
         {
           navItems.map((item) => (
             <li>
-              <Link
-                href={item.href}
-                text={item.text}
-                dropdown={item.dropdown}
-                className={item.className}
-              />
+              <Link href={item.href} className={item.className}>
+                {item.text}
+                {item.dropdown && <Icon name='caret' />}
+              </Link>
             </li>
           ))
         }
@@ -40,15 +38,17 @@ import Link from './Link.astro';
     align-items: center;
     padding-top: 8px;
   }
+  .navbar-links {
+    display: flex;
+
+    gap: 30px;
+    padding: 0;
+  }
   .logo:focus,
   a:focus {
     outline: transparent;
   }
-  ul {
-    display: flex;
-    gap: 30px;
-    padding: 0;
-  }
+
   li {
     list-style: none;
   }

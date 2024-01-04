@@ -1,33 +1,33 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import '../utils/fonts.css'
+import '../utils/fonts.css';
 
 interface Props extends HTMLAttributes<'a'> {
-  text: string;
-  dropdown?: boolean;
   className?: string;
 }
 
-const { text, dropdown, href,className, ...rest } = Astro.props;
+const {href, className, ...rest } = Astro.props;
 ---
 
-<a href={href} {...rest} class={`nav-link ${className || ''}`}>{text}</a>
+<a href={href} {...rest} class={`nav-link ${className || ''}`}><slot /></a>
 
 <style>
   .nav-link {
     color: #212832;
-    font-size: .9rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 3px;
     font-weight: 400;
     padding: 3px;
     font-family: 'Product Sans Regular';
   }
   .nav-link:hover {
-    background-color: #FFF1DA;
+    background-color: var(--light-orange);
   }
   .sign-up {
-    border: 1px solid #323942;
+    border: 1px solid #787c81;
     border-radius: 4px;
     padding-inline: 5px;
   }
-  
 </style>
