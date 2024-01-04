@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+
+const testimonies = await getCollection('testimonials');
+---
+
+{
+  testimonies.map(({ data }) => (
+    <div>
+      <p>{data.name}</p>
+    </div>
+  ))
+}
