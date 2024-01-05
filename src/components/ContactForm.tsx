@@ -1,9 +1,11 @@
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
-const handleSubmit = (e) => {
-    e.preventDefault()
-}
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData)
+  };
   return (
     <div>
       <p>
@@ -12,8 +14,8 @@ const handleSubmit = (e) => {
       </p>
       <form onSubmit={handleSubmit}>
         <label>
-            <span className={styles.sr_only}>Your email</span>
-          <input type='text' placeholder='Your email' />
+          <span className={styles.sr_only}>Your email</span>
+          <input type='text' name='email' placeholder='Your email' />
         </label>
         <button>Subscribe</button>
       </form>
