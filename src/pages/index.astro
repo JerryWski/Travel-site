@@ -2,12 +2,14 @@
 import BasicLayout from '../layouts/BasicLayout.astro';
 import Steps from '../components/Steps.astro';
 import Testimonials from '../components/Testimonials.astro';
+import ContactForm from '../components/ContactForm';
 ---
 
 <BasicLayout title='Welcome to Astro.'>
   <main>
     <Steps />
     <Testimonials />
+    <ContactForm />
   </main>
 </BasicLayout>
 
@@ -20,7 +22,8 @@ import Testimonials from '../components/Testimonials.astro';
     color: #212832;
     height: 100vh;
     display: flex;
-    gap: 240px;
+    flex-direction: column;
+    gap: 20px;
     height: 100dvh;
     line-height: 1.6;
   }
