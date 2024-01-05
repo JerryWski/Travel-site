@@ -2,7 +2,7 @@ import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
 const handleSubmit = (e) => {
-    e.preventDedault()
+    e.preventDefault()
 }
   return (
     <div>
