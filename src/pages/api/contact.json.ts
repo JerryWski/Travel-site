@@ -11,12 +11,29 @@ export const GET: APIRoute = ({ params, request }) => {
   );
 };
 
-export const POST: APIRoute = ({ request }) => {
-  return new Response(
-    JSON.stringify({
-      message: 'This was a POST!',
-    }),
-  );
+export const POST: APIRoute = async ({ request }) => {
+  if (request.headers.get('Content-Type') === 'application/json') {
+    const body = await request.json();
+
+    const res = await fetch('http://localhost:3000/contacts', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    console.log(data);
+    return new Response(
+      JSON.stringify({
+        message: 'Your name was: ',
+      }),
+      {
+        status: 200,
+      },
+    );
+  }
+  return new Response(null, { status: 400 });
 };
 
 export const DELETE: APIRoute = ({ request }) => {
