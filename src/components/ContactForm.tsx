@@ -8,13 +8,20 @@ const ContactForm = () => {
     const data = Object.fromEntries(formData);
     console.log(data);
     try {
-      const res = await fetch('api/contact.json', {
-        headers: {
-          'Content-Type': 'application/json',
+      toast.promise(
+        fetch('api/contact.json', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify(data),
+        }),
+        {
+          loading: 'Loading',
+          success: 'Got the data',
+          error: 'Error when fetching',
         },
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
+      );
     } catch (e) {
       console.error(e);
     }

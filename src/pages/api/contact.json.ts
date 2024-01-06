@@ -23,15 +23,13 @@ export const POST: APIRoute = async ({ request }) => {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    console.log(data);
-    return new Response(
-      JSON.stringify({
-        message: 'Your name was: ',
-      }),
-      {
+    if (data.id) {
+      return new Response(JSON.stringify(data), {
         status: 200,
-      },
-    );
+      });
+    }else {
+      throw new Error('problem')
+    }
   }
   return new Response(null, { status: 400 });
 };
